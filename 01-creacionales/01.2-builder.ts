@@ -73,7 +73,6 @@ class QueryBuilder {
   }
 
   execute(): string {
-    // Select id, name, email from users where age > 18 and country = 'Cri' order by name ASC limit 10;
     const fields = this.fields.length > 0 ? this.fields.join(', ') : '*';
     const conditions = this.conditions.length > 0 ? `where ${this.conditions.join(' and ')}` : '';
     const order = this.orderFields.length > 0 ? `order by ${this.orderFields.join(', ')}` : '';
@@ -83,6 +82,7 @@ class QueryBuilder {
 }
 
 function main() {
+  // Select id, name, email from users where age > 18 and country = 'Cri' order by name ASC limit 10;
   const usersQuery = new QueryBuilder('users')
     .select('id', 'name', 'email')
     .where('age > 18')
